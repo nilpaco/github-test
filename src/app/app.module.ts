@@ -7,14 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { GithubService } from './services/github.service';
-import { UserCardComponent } from './user-card/user-card.component';
+import { UserCardComponent } from './users/user-card/user-card.component';
 import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserCardComponent,
-    UsersComponent
+    UsersComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
