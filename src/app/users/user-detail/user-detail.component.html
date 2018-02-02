@@ -1,3 +1,9 @@
-<p>
-  user-detail works!
-</p>
+<pre>
+  {{ user?.login }}
+</pre>
+<div *ngFor="let follower of user?.followersList">
+  {{ follower.login }}
+</div>
+<div *ngFor="let repo of user?.reposList">
+  {{ repo.name }}
+</div>
