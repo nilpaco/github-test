@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { SearchService } from '../services/search.service';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,18 +18,27 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private githubService: GithubService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.loginDebounce
       .debounceTime(700)
       .distinctUntilChanged()
-      .subscribe((login: string) => this.searchService.searchLogin(login))
+      .subscribe((login: string) => {
+        this.searchService.searchLogin(login)
+      });
   }
 
   search(login: string): void {
-    this.loginDebounce.next(this.login);
+    this.route.firstChild.params.subscribe((params: Params) => {
+      if (params['login']) {
+        this.router.navigate(['..']);
+      }
+      this.loginDebounce.next(this.login);
+    })
   }
 
 }

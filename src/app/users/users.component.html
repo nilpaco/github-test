@@ -1,1 +1,7 @@
 <app-user-card [user]="user" *ngFor="let user of users"></app-user-card>
+<div *ngIf="!users?.length && !loading">
+    Realizar busqueda.
+</div>
+<div *ngIf="loading">
+    Loading...
+</div>

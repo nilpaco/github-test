@@ -11,6 +11,7 @@ import { SearchService } from '../services/search.service';
 export class UsersComponent implements OnInit {
 
   public users: User[];
+  public loading: boolean;
 
   constructor(
     private githubService: GithubService,
@@ -20,13 +21,19 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.searchService.getSearchLogin().subscribe((login: string) => {
       this.searchUsers(login);
-    })
+    });
   }
 
   searchUsers(login: string) {
-    this.githubService.searchUsers(login).subscribe(response => {
-      this.users = response['items'];
-    })
+    if (login) {
+      this.loading = true;
+      this.githubService.searchUsers(login).subscribe(response => {
+        this.loading = false;
+        this.users = response['items'];
+      })
+    } else {
+      this.users = [];
+    }
   }
 
 }

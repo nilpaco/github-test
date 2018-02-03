@@ -19,7 +19,7 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.getUser(params['login'])
+      this.getUser(params['login']);
     })
   }
 
