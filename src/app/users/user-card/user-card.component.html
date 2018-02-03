@@ -1,4 +1,10 @@
-<div [routerLink]="[user?.login]" class="card">
-  <img src="{{user?.avatar_url}}">
-  {{user?.login}}
+<div [routerLink]="[user?.login]" [class.disabled]="disableOnClick ? true : null" class="card">
+  <img src="{{ user?.avatar_url ? user?.avatar_url : '../../assets/default-user-img.png'  }}">
+  <div class="user-content">
+    <span class="info">
+      <span class="name">{{ user?.name }}</span>
+      <span class="login">{{ user?.login }}</span>
+    </span>
+    <div>{{ user?.bio }}</div>
+  </div>
 </div>

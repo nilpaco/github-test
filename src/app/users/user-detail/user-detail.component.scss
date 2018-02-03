@@ -1,0 +1,37 @@
+:host {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        .list {
+            flex: 1 0 20%;
+            .list-heading {
+                display: block;
+                padding: 9px 10px 10px;
+                font-size: 14px;
+                line-height: 17px;
+                background-color: #f6f8fa;
+                border: 1px solid rgba(27,31,35,0.15);
+                border-bottom: 0;
+                border-radius: 3px 3px 0 0;
+                margin: .5rem 1rem 0 1rem;
+            }
+            .list-container {
+                margin: 0 1rem 0rem 1rem;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                padding: 10px;
+                background: #fff;
+                border: 1px solid #d1d5da;
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+                li {
+                    list-style: none;
+                    position: relative;
+                    display: block;
+                    padding: 6px;
+                }
+            }  
+        }      
+    }
+}

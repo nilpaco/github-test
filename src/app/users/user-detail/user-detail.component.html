@@ -1,9 +1,23 @@
-<pre>
-  {{ user?.login }}
-</pre>
-<div *ngFor="let follower of user?.followersList">
-  {{ follower.login }}
-</div>
-<div *ngFor="let repo of user?.reposList">
-  {{ repo.name }}
+
+<app-user-card [user]="user" [disableOnClick]="true">
+</app-user-card>
+<div class="row">
+  <div class="list">
+    <h3 class="list-heading">Followers</h3>
+    <ul class="list-container">
+      <li *ngFor="let follower of user?.followersList">
+        <a [routerLink]="['..', follower?.login]">
+          {{ follower.login }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="list">
+    <h3 class="list-heading">Repositories</h3>
+    <ul class="list-container">
+      <li *ngFor="let repo of user?.reposList">
+        {{ repo.name }}
+      </li>
+    </ul>
+  </div>
 </div>

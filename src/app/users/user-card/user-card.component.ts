@@ -9,6 +9,7 @@ import { User } from "./../../models/user";
 export class UserCardComponent implements OnInit {
 
   @Input() user: User;
+  @Input() disableOnClick: boolean = false;
 
   constructor() { }
 
