@@ -1,0 +1,28 @@
+:host {
+    nav {
+        width: auto;
+        padding: .5rem 1rem;
+        background-color: #553f7a;
+        input {
+            height: 32px;
+            width: 100%;
+            margin: 0 auto;
+            max-width: 600px;
+            display: block;
+            border: none;
+            box-sizing: border-box;
+            display: block;
+            font-size: 1.2em;
+            height: 36px;
+            padding-right: 10px;
+            width: 100%;
+            padding: 1em;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            color: white;
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, .5);
+        }
+    }
+}

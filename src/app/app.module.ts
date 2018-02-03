@@ -10,13 +10,16 @@ import { GithubService } from './services/github.service';
 import { UserCardComponent } from './users/user-card/user-card.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserCardComponent,
     UsersComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
     HttpClientModule
   ],
   providers: [
-    GithubService
+    GithubService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })
