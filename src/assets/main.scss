@@ -8,4 +8,14 @@ html {
     a {
         color: #0366d6;
     }
+    .card {
+        padding: 24px 16px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: .5rem 1rem .5rem 1rem;
+        border: 1px solid #d1d5da;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 2px;
+    }
 }
