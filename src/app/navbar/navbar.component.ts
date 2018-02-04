@@ -28,7 +28,8 @@ export class NavbarComponent implements OnInit {
       .debounceTime(700)
       .distinctUntilChanged()
       .subscribe((login: string) => {
-        this.searchService.searchLogin(login)
+        this.router.navigate(['users'], { queryParams: { login: login } });
+        this.searchService.searchLogin(login);
       });
   }
 

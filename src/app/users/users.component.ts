@@ -4,6 +4,7 @@ import { GithubService } from '../services/github.service';
 import { SearchService } from '../services/search.service';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/finally';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -18,13 +19,18 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   constructor(
     private githubService: GithubService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.subscription = this.searchService.getSearchLogin()
       .subscribe((login: string) => {
-        this.searchUsers(login);
+        if (!login && this.route.snapshot.queryParams.login) {
+          this.searchUsers(this.route.snapshot.queryParams.login);
+        } else {
+          this.searchUsers(login);
+        }
       });
   }
 
