@@ -14,7 +14,7 @@ export class SearchService {
   }
 
   clearSearchLogin() {
-      this.loginSearch.next();
+    this.loginSearch.next();
   }
 
   getSearchLogin(): Observable<any> {

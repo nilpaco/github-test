@@ -4,6 +4,7 @@
         flex-wrap: wrap;
         .list {
             flex: 1 0 20%;
+            min-width: 250px;
             .list-heading {
                 display: block;
                 padding: 9px 10px 10px;
@@ -30,6 +31,7 @@
                     position: relative;
                     display: block;
                     padding: 6px;
+                    word-wrap: break-word;
                 }
             }  
         }      

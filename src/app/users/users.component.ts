@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from "./../models/user";
 import { GithubService } from '../services/github.service';
 import { SearchService } from '../services/search.service';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/finally';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
 
   public users: User[];
   public loading: boolean;
+  public subscription;
 
   constructor(
     private githubService: GithubService,
@@ -19,9 +22,10 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.searchService.getSearchLogin().subscribe((login: string) => {
-      this.searchUsers(login);
-    });
+    this.subscription = this.searchService.getSearchLogin()
+      .subscribe((login: string) => {
+        this.searchUsers(login);
+      });
   }
 
   searchUsers(login: string) {
@@ -35,5 +39,9 @@ export class UsersComponent implements OnInit {
       this.users = [];
     }
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+}
 
 }
