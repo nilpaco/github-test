@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class SearchService {
 
-  private loginSearch: Subject<string> = new Subject<string>() 
+  private loginSearch: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   constructor() { }
 
@@ -14,7 +14,7 @@ export class SearchService {
   }
 
   clearSearchLogin() {
-    this.loginSearch.next();
+    this.loginSearch.next('');
   }
 
   getSearchLogin(): Observable<any> {
